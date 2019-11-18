@@ -1,0 +1,50 @@
+Metadata-Version: 1.1
+Name: weather-app
+Version: 0.1
+Summary: A Django app to conduct display weather forecast for cape town.
+Home-page: https://www.django-weatherapp.com/
+Author: Admire
+Author-email: azinamo@gmail.com
+License: BSD-3-Clause
+Description: ===========
+        Weather App
+        ===========
+        
+        WeatherApp is a simple Django app to display weather forecast.
+        
+        Quick start
+        -----------
+        
+        1. Add "weatherapp" to your INSTALLED_APPS setting like this::
+        
+            INSTALLED_APPS = [
+                ...
+                'weatherapp',
+            ]
+        
+        2. Include the weatherapp URLconf in your project urls.py like this::
+        
+            path('weatherapp/', include('weatherapp.urls')),
+        
+        3. Run `python manage.py migrate` to create the weatherapp models.
+        
+        3. Run `python manage.py fetch_forecast` to fetch Cape Town weather forecast.
+        
+        4. Start the development server and visit http://127.0.0.1:8000/admin/
+            (you'll need the Admin app enabled).
+        
+        5. Visit http://127.0.0.1:8000/weather/ to access the app.
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 2.27  # Replace "X.Y" as appropriate
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content

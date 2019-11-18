@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Weather Forecast</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>High Temp</th>
+                    <th>Low Temp</th>
+                    <th>Wind</th>
+                    <th>Rain</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for forecast in forecasts %}
+                    <tr>
+                        <td>{{ forecast.date|date:'D, M Y' }}</td>
+                        <td>{{ forecast.maximum_temperature }}&deg;C</td>
+                        <td>{{ forecast.minimum_temperature }}&deg;C</td>
+                        <td>{{ forecast.wind }}</td>
+                        <td>{{ forecast.rain }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            {% if is_paginated %}
+                <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            <div class="row">
+                                {% if page_obj.has_previous %}
+                                    <div class="{% if page_obj.has_next %}col-6{% else %}col-12{% endif %} float-left text-left">
+                                    <a href="?page=1" type="button" class="btn btn-success"
+                                       aria-label="Left Align"><span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span>First</a>
+                                    <a href="?page={{ page_obj.previous_page_number }}" type="button" class="btn btn-success"
+                                       aria-label="Center Align"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Prev</a>
+                                    </div>
+                                {% endif %}
+                                {% if page_obj.has_next %}
+                                    <div class="{% if page_obj.has_previous %}col-6{% else %}col-12{% endif %} float-right text-right">
+                                        <a href="?page={{ page_obj.next_page_number }}" type="button" class="btn btn-info"
+                                           aria-label="Right Align"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>Next</a>
+                                        <a href="?page={{ page_obj.paginator.num_pages }}" type="button" class="btn btn-info"
+                                           aria-label="Justify"><span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span>Last</a>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </td>
+                    </tr>
+                </tfoot>
+            {% endif %}
+        </table>
+    </div>
+{% endblock %}

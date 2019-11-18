@@ -1,0 +1,7 @@
+include LICENSE
+include README.rst
+recursive-include weatherapp *
+recursive-include apps *
+recursive-include static *
+recursive-include templates *
+recursive-include docs *
